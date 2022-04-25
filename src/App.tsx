@@ -14,9 +14,9 @@ export function App() {
   function toggleModal(){
       setOpenModal(!openModal)
   }
+  
   return (
       <>
-      
       <TransactionsModal isOpen={openModal} onRequestClose={() => toggleModal()}/>
       <Header onRequestOpenModal={toggleModal} />
       <Dashboard/>

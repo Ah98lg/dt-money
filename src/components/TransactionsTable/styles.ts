@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const Container = styled.div`
     margin-top: 4rem;
 
@@ -18,7 +19,7 @@ export const Container = styled.div`
         }
         td{
             color: var(--text);
-            background-color: var(--white);
+            background-color: #FFFF;
             padding: 1.25rem 2rem;
             border-radius: 0.25rem;
 

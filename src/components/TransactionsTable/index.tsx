@@ -4,11 +4,12 @@ import { Container } from "./styles";
 
 
 interface ITransactions{
-    title: string,
+    id:number,
+    name: string,
     type: string,
     price: number,
     category: string,
-    date: Date
+    date: string,
 }
 
 export function TransactionsTable(){
@@ -18,7 +19,7 @@ export function TransactionsTable(){
     async function getTransactions(){
         try{
             await api.get('/transactions').then((response) => {
-                setTransactions(response.data)
+                setTransactions(response.data.transactions)
             })
         } catch(error){
             console.log('Não foi possivel completar a requisição')
@@ -27,7 +28,7 @@ export function TransactionsTable(){
 
     useEffect(()=>{
         getTransactions()
-    }, [])
+    }, [transactions])
 
     return(
         <Container>
@@ -41,16 +42,15 @@ export function TransactionsTable(){
                     </tr>
                 </thead>
                 <tbody>
-                    {transactions.map((transaction)=>{
-                        return(
-                            <tr>
-                        <td>{transaction.title}</td>
-                        <td>{transaction.price}</td>
-                        <td>{transaction.category}</td>
-                        <td>{transaction.date.toString()}</td>
-                    </tr>
-                        )
-                    })}
+                    {transactions.map((transaction)=>(
+                        <tr key={transaction.id}>
+                            <td>{transaction.name}</td>
+                            <td>{transaction.price}</td>
+                            <td>{transaction.category}</td>
+                            <td>{transaction.date}</td>
+                        </tr>
+                    )
+                    )}
                 </tbody>
             </table>
         </Container>

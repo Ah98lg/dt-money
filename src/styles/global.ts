@@ -57,7 +57,6 @@ export const GlobalStyle = createGlobalStyle`
 
     .reactModal{
         width: 36rem;
-        height: 36.8rem;
         background: var(--white);
         padding: 4rem 3rem;
         border-radius: 0.25rem;
@@ -65,7 +64,6 @@ export const GlobalStyle = createGlobalStyle`
 
     .modalOverlay{
         background: rgba(0, 0, 0, 0.5);
-
         position: fixed;
         top:0;
         right:0;
